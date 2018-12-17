@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+      height: 300px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="row">
+        <div class="column" align="left">
+        <center style="color:white;">
+          <h2>بسم الله الرحمن الرحيم</h2>
+          <h3>Final Project KIJ D - Hilmi Raditya Prakoso 5116100164</h3>
+          <br>
+          <img  style="width:80%;" src="http://cdn2.tstatic.net/kaltim/foto/bank/images/larang-qatar_20170612_093055.jpg">
+          <br><br>
+          <p>Motivasi untuk mengerjakan FP ini :</p>
+          <h3>مَنِ اجْتَهَدَ وَبَذَلَ مَا فِي وُسْعِهِ فَلاَ ضَمَانَ عَلَيْهِ وَكُتِبَ لَهُ تَمَامَ سَعْيِهِ </h3>
+          <p><i>Barangsiapa bersungguh-sungguh mengerahkan kemampuannya, maka tidak wajib mengganti dan dianggap mengerjakan amalan secara sempurna</i></p>
+          <br><br>
+          <div id="modalPseudo">
+            <div>
+              <p>Masukkan nama anda :</p>
+              <input type="text" id="pseudoInput">
+            </div>
+            <div>
+              <button id="pseudoSubmit">Simpan Nama</button>
+            </div>
+          </div>
+            <br>
+            <div>
+              <button value="1" id="sembunyikan">Sembunyikan Enkripsi</button>
+            </div>
+        </center>
+        </div>
+        <div class="column">
+          <div id="chatEntries"></div>
+            <div class="row" id="entries">
+              <textarea type="text" id="messageInput"></textarea>
+              <div class="btn-group">
+                <button class="btn" id="submit" data-loading-text="Kirim">Kirim</button>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
+<script type="text/javascript">
+$("#sembunyikan").click(function(){
+  if($("#sembunyikan").val() == '1'){
+      $(".encryptchat").hide();
+      $("#sembunyikan").val('0'); 
+      $("#sembunyikan").text('Lihat Enkripsi');         
+  }
+  else if($("#sembunyikan").val() == '0'){
+      $(".encryptchat").show();
+      $("#sembunyikan").val('1'); 
+      $("#sembunyikan").text('Sembunyikan Enkripsi');
+  }
+});
+</script>
