@@ -1,2 +1,1 @@
-# Real-TIme-Chat
-NodeJs + Socket.io
+NodeJs + Socket.io + MagicCrypt
