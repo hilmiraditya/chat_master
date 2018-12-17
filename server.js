@@ -3,7 +3,6 @@ var express = require('express'), app = express();
 var http = require('http')
   , server = http.createServer(app)
   , io = require('socket.io').listen(server);
-var MagicCrypt = require('magiccrypt');
 var jade = require('jade');
 var pseudoArray = ['admin'];
 

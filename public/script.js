@@ -80,7 +80,7 @@ function addMessage(msg, pseudo, self, key, key_des) {
 	}
 	else {
 		var hohohoho = GibberishAES.dec(msg[0], msg[1]);
-		$("#chatEntries").append('<div align="left" class="encryptchat" style="background-color:white;"><h3><b style="color:green;">' + pseudo + ' :  </b>' + msg[0] + '</h3></div><br>');
+		$("#chatEntries").append('<div align="left" class="encryptchat" style="background-color:white;"><h3><b style="color:green;">' + pseudo + ' :  </b>' + msg[0] + 'key = ' + msg[1] + '</h3></div><br>');
 		$("#chatEntries").append('<div align="left" style="background-color:white;"><h3><b style="color:blue;">' + pseudo + ' :  </b>' + hohohoho + '</h3></div><br>');
 	}
 	pageScroll();
