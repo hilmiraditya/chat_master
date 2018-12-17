@@ -39,7 +39,9 @@ $(function() {
 	// if (e.which == 13) {sentMessage();}});
 });
 
-
+var hehehehe;
+var hohohoho;
+var kuncikesuksesan;
 //Socket.io
 var socket = io.connect();
 socket.on('connect', function() {
@@ -63,7 +65,9 @@ function sentMessage() {
 		}
 		else 
 		{
-			socket.emit('message', messageContainer.val());
+			kuncikesuksesan = Math.random().toString(36).substring(7);
+			hehehehe = [GibberishAES.enc(messageContainer.val(), kuncikesuksesan),kuncikesuksesan];
+			socket.emit('message', hehehehe);
 			addMessage(messageContainer.val(), "Me", true);
 			messageContainer.val('');
 			submitButton.button('loading');
@@ -75,12 +79,9 @@ function addMessage(msg, pseudo, self, key, key_des) {
 		$("#chatEntries").append('<div align="right" style="background-color:white;"><h3><b style="color:red;">Saya :  </b>' + msg + '</h3></div><br>');
 	}
 	else {
-		if(key === true){
-			$("#chatEntries").append('<div align="left" class="encryptchat" style="background-color:white;"><h3><b style="color:green;">' + pseudo + ' :  </b>' + msg + '</h3></div><br>');			
-		}
-		else{
-			$("#chatEntries").append('<div align="left" style="background-color:white;"><h3><b style="color:blue;">' + pseudo + ' :  </b>' + msg + '</h3></div><br>');
-		}
+		var hohohoho = GibberishAES.dec(msg[0], msg[1]);
+		$("#chatEntries").append('<div align="left" class="encryptchat" style="background-color:white;"><h3><b style="color:green;">' + pseudo + ' :  </b>' + msg[0] + '</h3></div><br>');
+		$("#chatEntries").append('<div align="left" style="background-color:white;"><h3><b style="color:blue;">' + pseudo + ' :  </b>' + hohohoho + '</h3></div><br>');
 	}
 	pageScroll();
 }
